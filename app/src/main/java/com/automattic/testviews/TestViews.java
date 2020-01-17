@@ -30,7 +30,7 @@ public class TestViews {
                 @Override
                 public void endTransition(LayoutTransition layoutTransition, ViewGroup viewGroup, View view, int i) {
                     // here both the viewgroup's children count should be zero,
-                    // and the view's parent should be null, unless animateLayoutChanges=true
+                    // and the view's parent should be null
                     int test = 0;
                 }
             });
