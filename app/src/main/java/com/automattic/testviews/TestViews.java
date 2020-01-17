@@ -20,19 +20,21 @@ public class TestViews {
     public void tryThings() {
         View oneChild = testViewGroup.getChildAt(0);
         LayoutTransition layoutTransition = testViewGroup.getLayoutTransition();
-        layoutTransition.addTransitionListener(new LayoutTransition.TransitionListener() {
-            @Override
-            public void startTransition(LayoutTransition layoutTransition, ViewGroup viewGroup, View view, int i) {
+        if (layoutTransition != null) {
+            layoutTransition.addTransitionListener(new LayoutTransition.TransitionListener() {
+                @Override
+                public void startTransition(LayoutTransition layoutTransition, ViewGroup viewGroup, View view, int i) {
 
-            }
+                }
 
-            @Override
-            public void endTransition(LayoutTransition layoutTransition, ViewGroup viewGroup, View view, int i) {
-                // here both the viewgroup's children count should be zero,
-                // and the view's parent should be null, unless animateLayoutChanges=true
-                int test = 0;
-            }
-        });
+                @Override
+                public void endTransition(LayoutTransition layoutTransition, ViewGroup viewGroup, View view, int i) {
+                    // here both the viewgroup's children count should be zero,
+                    // and the view's parent should be null, unless animateLayoutChanges=true
+                    int test = 0;
+                }
+            });
+        }
         ViewParent parent = oneChild.getParent();
         if (parent != null) {
             testViewGroup.removeView(oneChild);
